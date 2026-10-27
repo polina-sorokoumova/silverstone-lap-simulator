@@ -1,26 +1,26 @@
 # Silverstone Lap Time Simulator
 
 
-A Python-based simulation of Formula 1 lap performance at the Silverstone Circuit, using track geometry to estimate a speed profile and calculate lap time.
+A Python-based simulation that estimates Formula 1 lap time at the Silverstone Circuit using track geometry and a simplified car performance model.
 
 ## Description
 
-This project simulates a Formula 1 car completing a lap of the Silverstone Circuit. Instead of assuming a constant speed throughout the lap, the model uses track geometry to estimate how the car's speed changes along the circuit.
+This project simulates a Formula 1 car completing a lap of the Silverstone Circuit using Python. It estimates lap time by analysing the track layout and calculating how the car's speed changes throughout the lap.
 
-The simulation loads raceline data from a CSV file and calculates the curvature of the track at different points. Track curvature is used to estimate the speed the car can maintain through different sections of the circuit, reflecting the relationship between cornering speed and the sharpness of each turn.
+The simulation uses raceline data from a CSV file to calculate track curvature and determine speed limits for different sections of the circuit. Tighter corners require lower speeds, while straights allow the car to accelerate towards its maximum speed.
 
-Based on the calculated curvature, the script generates a cyclic speed profile representing a complete lap. This profile is then used to estimate the total lap time, illustrating how the layout of the circuit can influence overall performance.
+The model also includes simplified acceleration and braking calculations. Acceleration decreases at higher speeds, while braking becomes stronger due to an assumed aerodynamic effect. By combining cornering speed limits with acceleration and braking constraints, the simulation calculates a speed profile for the entire lap.
 
-The project also produces a visualization of the simulation results, providing a way to examine the relationship between track geometry and the estimated speed profile.
+The script then estimates the total lap time and generates two plots: speed versus distance along the track, and a map of the circuit coloured according to the calculated speed.
 
-**Note:** This is a simplified simulation model intended for educational and exploratory purposes. The calculated speed profile and lap time depend on the input raceline data and the assumptions implemented in the model. They should not be interpreted as official Formula 1 telemetry or an exact prediction of real-world lap performance.
+**Note:** This is a simplified simulation for educational purposes. The physical parameters are assumptions rather than values calibrated using real Formula 1 telemetry, so the results are estimates and may differ from actual racing performance.
 
 ## Technologies Used
 
-- **Python** — core simulation and calculations
-- **NumPy** — numerical operations and track geometry calculations
-- **Pandas** — loading and processing raceline data from CSV files
-- **Matplotlib** — visualizing simulation results
+- Python
+- NumPy
+- Pandas
+- Matplotlib
 
 ## Requirements
 
@@ -32,25 +32,30 @@ The project also produces a visualization of the simulation results, providing a
 
 ## Usage
 
-1. Download or clone this repository.
+1. Clone or download this repository.
 2. Install the required Python libraries.
-3. Ensure that the Silverstone raceline file is available at `racetrack-database/racelines/Silverstone.csv`.
+3. Make sure the track data file is available at `racetrack-database/racelines/Silverstone.csv`.
 4. Run `main.py` in Python or PyCharm.
-5. The script processes the track geometry, generates a speed profile, and calculates the estimated lap time.
-6. The simulation visualization can be viewed in the image included in this repository.
+5. The script calculates the track curvature, cornering speed limits, and speed profile while accounting for acceleration and braking.
+6. The estimated lap time, maximum speed, minimum speed, and other simulation statistics are printed in the console.
+7. A visualization of the results is saved as `lap_silverstone.png`.
 
 ## Simulation Results
 
-The image below shows a visualization associated with the Silverstone lap simulation.
+The simulation generates two plots:
+
+- **Speed Profile:** shows the calculated speed and cornering speed limits along the track.
+- **Track Map:** shows the Silverstone Circuit coloured according to the calculated speed.
 
 ![Silverstone Lap Simulation](silverstone-lap-sim.jpg)
 
 ## Project Structure
 
 - `main.py` — main simulation script
-- `racetrack-database/racelines/Silverstone.csv` — input raceline data
-- `silverstone-lap-sim.jpg` — simulation image included in the repository
+- `racetrack-database/racelines/Silverstone.csv` — input track data
+- `silverstone-lap-sim.jpg` — image displayed in this README
+- `lap_silverstone.png` — plot generated by the script
 
 ## Future Improvements
 
-Potential extensions include incorporating vehicle acceleration and braking limits, tire grip, aerodynamic downforce, and more detailed vehicle dynamics to make the simulation more representative of real-world Formula 1 performance.
+Possible improvements include adding more detailed tire and aerodynamic models, engine power limits, gear ratios, and comparisons with publicly available lap-time data.
