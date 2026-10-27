@@ -7,11 +7,11 @@ A Python-based simulation of Formula 1 lap performance at the Silverstone Circui
 
 This project simulates a Formula 1 car completing a lap of the Silverstone Circuit. Instead of assuming a constant speed throughout the lap, the model uses track geometry to estimate how the car's speed changes along the circuit.
 
-The simulation loads raceline data from a CSV file and calculates the curvature of the track at different points. This curvature is then used to estimate the maximum speed the car can maintain through each section of the circuit, accounting for the relationship between cornering speed and track curvature.
+The simulation loads raceline data from a CSV file and calculates the curvature of the track at different points. Track curvature is used to estimate the speed the car can maintain through different sections of the circuit, reflecting the relationship between cornering speed and the sharpness of each turn.
 
-A cyclic speed profile is generated to represent a complete lap, taking into account the sequence of corners and straights around the circuit. The resulting speed profile is used to estimate the total lap time.
+Based on the calculated curvature, the script generates a cyclic speed profile representing a complete lap. This profile is then used to estimate the total lap time, illustrating how the layout of the circuit can influence overall performance.
 
-The project also generates a visualization of the simulated lap, making it easier to examine how track geometry influences the car's speed throughout the circuit.
+The project also produces a visualization of the simulation results, providing a way to examine the relationship between track geometry and the estimated speed profile.
 
 **Note:** This is a simplified simulation model intended for educational and exploratory purposes. The calculated speed profile and lap time depend on the input raceline data and the assumptions implemented in the model. They should not be interpreted as official Formula 1 telemetry or an exact prediction of real-world lap performance.
 
@@ -32,25 +32,25 @@ The project also generates a visualization of the simulated lap, making it easie
 
 ## Usage
 
-1. Clone or download this repository.
-2. Make sure the required Python libraries are installed.
-3. Ensure that the Silverstone raceline CSV file is available at `racetrack-database/racelines/Silverstone.csv`.
-4. Open `main.py` in Python or PyCharm and run the script.
-5. The simulation processes the track geometry, generates a speed profile, and calculates the estimated lap time.
-6. A plot of the simulation results is saved as `lap_silverstone.png` in the script's directory.
+1. Download or clone this repository.
+2. Install the required Python libraries.
+3. Ensure that the Silverstone raceline file is available at `racetrack-database/racelines/Silverstone.csv`.
+4. Run `main.py` in Python or PyCharm.
+5. The script processes the track geometry, generates a speed profile, and calculates the estimated lap time.
+6. The simulation visualization can be viewed in the image included in this repository.
 
 ## Simulation Results
 
-The simulation generates a visualization of the car's speed profile around the Silverstone Circuit.
+The image below shows a visualization associated with the Silverstone lap simulation.
 
-![Silverstone Lap Simulation](lap_silverstone.png)
+![Silverstone Lap Simulation](silverstone-lap-sim.jpg)
 
 ## Project Structure
 
 - `main.py` — main simulation script
 - `racetrack-database/racelines/Silverstone.csv` — input raceline data
-- `lap_silverstone.png` — generated visualization of the simulation results
+- `silverstone-lap-sim.jpg` — simulation image included in the repository
 
 ## Future Improvements
 
-Potential extensions include incorporating vehicle acceleration and braking limits, tire grip, aerodynamic downforce, and more detailed vehicle dynamics to produce a more realistic lap-time simulation.
+Potential extensions include incorporating vehicle acceleration and braking limits, tire grip, aerodynamic downforce, and more detailed vehicle dynamics to make the simulation more representative of real-world Formula 1 performance.
