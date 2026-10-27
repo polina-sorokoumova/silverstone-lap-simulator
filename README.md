@@ -1,6 +1,5 @@
 # Silverstone Lap Time Simulator
 
-# silverstone-lap-simulator
 
 A Python-based simulation of Formula 1 lap performance at the Silverstone Circuit, using track geometry to estimate a speed profile and calculate lap time.
 
